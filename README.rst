@@ -10,7 +10,9 @@ replace s3_fdw_ which is not supported on PostgreSQL version 9.2+.
 
 Install multicorn
 ===========================================
-First you need to install it (last command might need a sudo).
+First, be sure your python environment has a recent version of setuptools. For example, setuptools in the CENTOS 7 repos will return cryptic error messages.  "pip install --upgrade setuptools" worked for me on CENTOS 7.
+
+Second, you need to install it (last command might need a sudo).
 
 .. code:: bash
     git clone git@github.com:eligoenergy/s3csv_fdw.git
@@ -29,7 +31,7 @@ Just paste this code to create server
 .. code:: sql
     CREATE SERVER multicorn_csv FOREIGN DATA WRAPPER multicorn
     options (
-    	wrapper 's3csvfdw.s3csvfdw.S3CsvFdw'
+    	wrapper 's3fdw.s3fdw.S3Fdw'
     );
 
 
